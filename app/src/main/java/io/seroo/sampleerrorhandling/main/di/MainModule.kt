@@ -1,6 +1,5 @@
 package io.seroo.sampleerrorhandling.main.di
 
-import androidx.lifecycle.ViewModelProviders
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -9,7 +8,6 @@ import io.seroo.sampleerrorhandling.main.data.MainRemoteDataSource
 import io.seroo.sampleerrorhandling.main.data.MainRepository
 import io.seroo.sampleerrorhandling.main.domain.GetRemoteDataListUseCase
 import io.seroo.sampleerrorhandling.main.presentation.MainActivity
-import io.seroo.sampleerrorhandling.main.presentation.MainViewModel
 import io.seroo.sampleerrorhandling.main.presentation.MainViewModelFactory
 
 @Module
@@ -33,13 +31,6 @@ abstract class MainModule {
         fun provideMainRepositor(
             mainRemoteDataSource: MainRemoteDataSource
         ): MainRepository = MainRepository(mainRemoteDataSource)
-
-        @Provides
-        @JvmStatic
-        fun provideMainViewModel(
-            mainActivity: MainActivity,
-            factory: MainViewModelFactory
-        ): MainViewModel = ViewModelProviders.of(mainActivity, factory)[MainViewModel::class.java]
 
         @Provides
         @JvmStatic
