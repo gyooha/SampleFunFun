@@ -8,6 +8,10 @@ class MainRemoteDataSource(
 ) {
 
     suspend fun remoteApiCallAndError(): List<RemoteData> {
-        return remoteService.getRemoteService()
+        return remoteService.getErrorRemoteService()
+    }
+
+    suspend fun remoteApiCallAndSuccess(): List<RemoteData> {
+        return remoteService.getSuccessRemoteService()
     }
 }

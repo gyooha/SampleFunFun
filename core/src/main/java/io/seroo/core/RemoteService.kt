@@ -2,6 +2,6 @@ package io.seroo.core
 
 interface RemoteService {
 
-    fun getRemoteService(): List<RemoteData>
-    fun getErrorRemoteService(): List<RemoteData>
+    suspend fun getSuccessRemoteService(): List<RemoteData>
+    suspend fun getErrorRemoteService(): List<RemoteData>
 }

@@ -6,6 +6,10 @@
         <variable
             name="vm"
             type="io.seroo.sampleerrorhandling.main.presentation.MainViewModel" />
+
+        <variable
+            name="adapter"
+            type="io.seroo.sampleerrorhandling.common.BaseAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,9 +21,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
+            bindAdapter="@{adapter}"
+            submitList="@{vm.getMainItemList()}"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Hello World!"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
