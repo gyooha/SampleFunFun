@@ -3,7 +3,7 @@ package io.seroo.sampleerrorhandling.main.di
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import io.seroo.core.RemoteService
+import io.seroo.core.service.RemoteService
 import io.seroo.sampleerrorhandling.main.data.MainRemoteDataSource
 import io.seroo.sampleerrorhandling.main.data.MainRepository
 import io.seroo.sampleerrorhandling.main.domain.GetMainItemListSuccessUseCase

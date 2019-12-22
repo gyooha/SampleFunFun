@@ -1,11 +1,15 @@
-package io.seroo.core
+package io.seroo.core.service
 
+import io.seroo.core.service.RemoteData
+import io.seroo.core.service.RemoteService
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 
 class RemoteServiceImpl : RemoteService {
-    override suspend fun getSuccessRemoteService(): List<RemoteData> {
-        return listOf(
+    override suspend fun getSuccessRemoteService(): List<RemoteData> = coroutineScope {
+        delay(2000)
+
+        listOf(
             RemoteData(
                 "1",
                 "https://images-na.ssl-images-amazon.com/images/I/51ceib19gTL.jpg",
@@ -34,7 +38,7 @@ class RemoteServiceImpl : RemoteService {
     }
 
     override suspend fun getErrorRemoteService(): List<RemoteData> = coroutineScope {
-        delay(1000)
+        delay(5000)
 
         throw IllegalStateException("invalid data")
     }

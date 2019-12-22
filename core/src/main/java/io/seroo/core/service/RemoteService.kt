@@ -1,4 +1,6 @@
-package io.seroo.core
+package io.seroo.core.service
+
+import io.seroo.core.service.RemoteData
 
 interface RemoteService {
 

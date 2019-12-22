@@ -7,7 +7,7 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder>() {
 
     abstract fun submitItem(newList: List<T>)
 
-    protected fun getItem(position: Int) = itemList[position]
+    protected fun getItem(position: Int): T = itemList[position]
 
     override fun getItemCount(): Int = itemList.size
 }

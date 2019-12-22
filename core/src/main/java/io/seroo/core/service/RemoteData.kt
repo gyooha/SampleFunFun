@@ -1,4 +1,4 @@
-package io.seroo.core
+package io.seroo.core.service
 
 data class RemoteData(
     val id: String,

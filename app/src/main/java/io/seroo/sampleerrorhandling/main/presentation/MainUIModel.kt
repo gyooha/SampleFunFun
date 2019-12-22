@@ -1,6 +1,6 @@
 package io.seroo.sampleerrorhandling.main.presentation
 
-import io.seroo.core.RemoteData
+import io.seroo.core.service.RemoteData
 
 data class MainItem(
     val id: String,
