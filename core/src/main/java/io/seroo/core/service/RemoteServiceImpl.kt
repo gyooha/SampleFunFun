@@ -1,7 +1,5 @@
 package io.seroo.core.service
 
-import io.seroo.core.service.RemoteData
-import io.seroo.core.service.RemoteService
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 

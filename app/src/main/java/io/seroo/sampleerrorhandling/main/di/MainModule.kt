@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import io.seroo.core.service.RemoteService
-import io.seroo.sampleerrorhandling.main.data.MainRemoteDataSource
-import io.seroo.sampleerrorhandling.main.data.MainRepository
+import io.seroo.core.service.RemoteDataSource
+import io.seroo.core.service.RemoteRepository
 import io.seroo.sampleerrorhandling.main.domain.GetMainItemListSuccessUseCase
 import io.seroo.sampleerrorhandling.main.presentation.MainActivity
 import io.seroo.sampleerrorhandling.main.presentation.MainAdapter
@@ -24,21 +24,22 @@ abstract class MainModule {
         @Provides
         @JvmStatic
         fun provideGetRemoteDataListUseCase(
-            repository: MainRepository
+            repository: RemoteRepository
         ): GetMainItemListSuccessUseCase = GetMainItemListSuccessUseCase(repository)
 
         @Provides
         @JvmStatic
         fun provideMainRepositor(
-            mainRemoteDataSource: MainRemoteDataSource
-        ): MainRepository = MainRepository(mainRemoteDataSource)
+            remoteDataSource: RemoteDataSource
+        ): RemoteRepository =
+            RemoteRepository(remoteDataSource)
 
         @Provides
         @JvmStatic
         fun provideMainRepository(
             remoteService: RemoteService
-        ): MainRemoteDataSource {
-            return MainRemoteDataSource(remoteService)
+        ): RemoteDataSource {
+            return RemoteDataSource(remoteService)
         }
 
         @Provides

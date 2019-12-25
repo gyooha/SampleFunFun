@@ -1,9 +1,6 @@
-package io.seroo.sampleerrorhandling.main.data
+package io.seroo.core.service
 
-import io.seroo.core.service.RemoteData
-import io.seroo.core.service.RemoteService
-
-class MainRemoteDataSource(
+class RemoteDataSource(
     private val remoteService: RemoteService
 ) {
 
