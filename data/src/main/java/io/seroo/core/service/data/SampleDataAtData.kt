@@ -1,14 +1,14 @@
-package io.seroo.core.service
+package io.seroo.core.service.data
 
-import io.seroo.domain.entities.SampleEntity
+import io.seroo.domain.data.SampleDataAtDomain
 
-data class SampleData(
+data class SampleDataAtData(
     val id: String,
     val imagePath: String,
     val title: String,
     val description: String
 ) {
-    fun toSampleEntity() = SampleEntity(
+    fun toSampleEntity() = SampleDataAtDomain(
         id,
         imagePath,
         title,

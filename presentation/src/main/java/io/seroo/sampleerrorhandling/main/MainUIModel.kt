@@ -1,6 +1,6 @@
 package io.seroo.sampleerrorhandling.main
 
-import io.seroo.domain.entities.SampleEntity
+import io.seroo.domain.data.SampleDataAtDomain
 
 data class MainItem(
     val id: String,
@@ -8,6 +8,6 @@ data class MainItem(
     val title: String
 )
 
-fun SampleEntity.toMainItem(): MainItem {
+fun SampleDataAtDomain.toMainItem(): MainItem {
     return MainItem(id, imagePath, title)
 }

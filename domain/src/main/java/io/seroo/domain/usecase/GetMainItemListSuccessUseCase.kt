@@ -1,13 +1,13 @@
 package io.seroo.domain.usecase
 
-import io.seroo.domain.interfaces.SampleRepository
-import io.seroo.domain.entities.SampleEntity
+import io.seroo.domain.repository.SampleRepository
+import io.seroo.domain.data.SampleDataAtDomain
 
 class GetMainItemListSuccessUseCase(
     private val remoteRepository: SampleRepository
 ) {
 
-    suspend operator fun invoke(): List<SampleEntity> {
-        return remoteRepository.callRemoteApiAndSuccess()
+    suspend operator fun invoke(): List<SampleDataAtDomain> {
+        return remoteRepository.getRemoteApi()
     }
 }

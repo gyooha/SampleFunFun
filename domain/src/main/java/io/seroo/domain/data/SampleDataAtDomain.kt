@@ -1,6 +1,6 @@
-package io.seroo.domain.entities
+package io.seroo.domain.data
 
-data class SampleEntity(
+data class SampleDataAtDomain(
     val id: String,
     val imagePath: String,
     val title: String,

@@ -4,10 +4,10 @@ import android.app.Application
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import io.seroo.core.service.SampleRemoteDataSource
-import io.seroo.core.service.SampleRepositoryImpl
-import io.seroo.core.service.SampleService
-import io.seroo.core.service.SampleServiceImpl
+import io.seroo.core.service.repository.SampleRemoteDataSource
+import io.seroo.core.service.repository.SampleRepositoryImpl
+import io.seroo.core.service.api.SampleService
+import io.seroo.core.service.api.SampleServiceImpl
 import io.seroo.sampleerrorhandling.FunFunApplication
 import javax.inject.Singleton
 
@@ -18,21 +18,26 @@ abstract class ApplicationModule {
         @Singleton
         @Provides
         @JvmStatic
-        fun provideRemoteService(): SampleService = SampleServiceImpl()
+        fun provideRemoteService(): SampleService =
+            SampleServiceImpl()
 
         @Provides
         @JvmStatic
         @Singleton
         fun provideMainRepository(
             sampleService: SampleService
-        ): SampleRemoteDataSource = SampleRemoteDataSource(sampleService)
+        ): SampleRemoteDataSource =
+            SampleRemoteDataSource(sampleService)
 
         @Provides
         @JvmStatic
         @Singleton
         fun provideMainRepositor(
             remoteRemoteDataSource: SampleRemoteDataSource
-        ): SampleRepositoryImpl = SampleRepositoryImpl(remoteRemoteDataSource)
+        ): SampleRepositoryImpl =
+            SampleRepositoryImpl(
+                remoteRemoteDataSource
+            )
     }
 
     @Binds
