@@ -2,6 +2,8 @@ package io.seroo.core.service
 
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import java.io.IOException
+import java.util.concurrent.TimeoutException
 
 class RemoteServiceImpl : RemoteService {
     override suspend fun getSuccessRemoteService(): List<RemoteData> = coroutineScope {
@@ -35,9 +37,16 @@ class RemoteServiceImpl : RemoteService {
         )
     }
 
-    override suspend fun getErrorRemoteService(): List<RemoteData> = coroutineScope {
+    override suspend fun getTimeOutExceptionRemoteService(): List<RemoteData> = coroutineScope {
         delay(5000)
 
-        throw IllegalStateException("invalid data")
+        throw TimeoutException("invalid data")
+    }
+
+
+    override suspend fun getIOExceptionRemoteService(): List<RemoteData> = coroutineScope {
+        delay(5000)
+
+        throw IOException("invalid data")
     }
 }

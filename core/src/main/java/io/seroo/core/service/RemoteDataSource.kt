@@ -6,7 +6,7 @@ class RemoteDataSource(
 
     suspend fun remoteApiCallAndError(): List<RemoteData> {
         return try {
-            remoteService.getErrorRemoteService()
+            remoteService.getTimeOutExceptionRemoteService()
         } catch (e: Exception) {
             e.printStackTrace()
             emptyList()
