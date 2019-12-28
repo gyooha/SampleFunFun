@@ -1,3 +1,1 @@
-rootProject.name='SampleErrorHandling'
-include ':app'
-include ':core'
+include ':presentation', ':data', ':domain', ':common'
