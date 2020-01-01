@@ -7,8 +7,6 @@ class SampleRepositoryImpl(
     private val remoteRemoteDataSource: SampleRemoteDataSource
 ) : SampleRepository {
 
-    private val sampleDataAtDomainCache: HashMap<String, List<SampleDataAtDomain>> = hashMapOf()
-
     override suspend fun getIOExceptionApi(): List<SampleDataAtDomain> {
         val response = remoteRemoteDataSource.getTimeoutExceptionApi()
             .map { it.toSampleEntity() }
