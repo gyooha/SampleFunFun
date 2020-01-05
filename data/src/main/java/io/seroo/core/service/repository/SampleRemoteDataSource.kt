@@ -1,5 +1,6 @@
 package io.seroo.core.service.repository
 
+import io.seroo.common.FunResult
 import io.seroo.core.service.api.SampleService
 import io.seroo.core.service.data.SampleDataAtData
 
@@ -7,25 +8,21 @@ class SampleRemoteDataSource(
     private val sampleService: SampleService
 ) {
 
-    suspend fun getTimeoutExceptionApi(): List<SampleDataAtData> {
-        return try {
+    suspend fun getTimeoutExceptionApi(): FunResult<List<SampleDataAtData>> {
+        return FunResult.safeCall {
             sampleService.getTimeOutExceptionRemoteService()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emptyList()
         }
     }
 
-    suspend fun getIOExceptionApi(): List<SampleDataAtData> {
-        return try {
+    suspend fun getIOExceptionApi(): FunResult<List<SampleDataAtData>> {
+        return FunResult.safeCall {
             sampleService.getIOExceptionRemoteService()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emptyList()
         }
     }
 
-    suspend fun getRemoteApi(): List<SampleDataAtData> {
-        return sampleService.getSuccessRemoteService()
+    suspend fun getRemoteApi(): FunResult<List<SampleDataAtData>> {
+        return FunResult.safeCall {
+            sampleService.getSuccessRemoteService()
+        }
     }
 }
