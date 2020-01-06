@@ -13,14 +13,14 @@ sealed class FunResult<out T> {
     }
 }
 
-suspend fun <T, R> FunResult<T>.map(f: (T) -> R): FunResult<R> = when (this) {
+suspend fun <T, R> FunResult<T>.map(f: suspend (T) -> R): FunResult<R> = when (this) {
     is FunResult.Success<T> -> FunResult.Success(
         f.invoke(data)
     )
     is FunResult.Error -> this
 }
 
-suspend fun <T, R> FunResult<T>.flatMap(f: (T) -> FunResult<R>): FunResult<R> = when (this) {
+suspend fun <T, R> FunResult<T>.flatMap(f: suspend (T) -> FunResult<R>): FunResult<R> = when (this) {
     is FunResult.Success -> f.invoke(data)
     is FunResult.Error -> this
 }
